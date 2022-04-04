@@ -9,8 +9,8 @@ options{
 
 <h3>System Wide Configuration:</h3>
 <pre>
-BE      -> warning_email_addr       daniel@nemanic.eu
-MAIL    -> defaultMailFromAddress   webservice@etglobal.com
+BE      -> warning_email_addr       Mail@Addess.de
+MAIL    -> defaultMailFromAddress   Mail@Addess.de
 MAIL    -> defaultMailFromName      E3 Group
 SYS     -> UTF8filesystem           true
 SYS     -> phpTimeZone              UTC+1
