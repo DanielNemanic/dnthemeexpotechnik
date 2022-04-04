@@ -1,0 +1,35 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{cookieWarning}">
+   <f:render partial="CookieWarning"/>
+</f:if>
+
+<div class="uk-section uk-section-small uk-section-muted">
+   <div class="uk-container">
+      <h3>
+         <f:render partial="RenderLabelOrMessage" arguments="{key: 'status_header'}"/>
+      </h3>
+      <p>
+         <f:render partial="RenderLabelOrMessage" arguments="{key: 'status_message'}"/>
+      </p>
+   </div>
+</div>
+
+<f:form action="login" actionUri="{actionUri}" target="_top" fieldNamePrefix="" class="uk-form-stacked">
+   <div class="uk-margin">
+      <label class="uk-form-label">
+         <f:translate key="username"/>
+      </label>
+      {user.username}
+   </div>
+   <div class="uk-margin">
+      <f:form.submit value="{f:translate(key: 'logout')}" name="submit"
+                     class="uk-width-1-1 uk-width-1-2@s uk-button uk-button-primary"/>
+   </div>
+   
+   <div class="felogin-hidden">
+      <f:form.hidden name="logintype" value="logout"/>
+      <f:form.hidden name="pid" value="{storagePid}"/>
+   </div>
+</f:form>
+</html>

@@ -1,0 +1,29 @@
+lib.admin = COA
+lib.admin {
+
+	10 < styles.content.editPanelPage
+
+	#20 < styles.content.get
+
+	9600 = TEXT
+	9600.value (
+    <style type="text/css">
+        #TSFE_ADMIN_PANEL_FORM, .typo3-editPanel-label {display: none;}
+        .typo3-feedit-element {
+            outline: 3px solid rgba(226, 226, 226, 0.8) !important;
+            outline-offset: 4px;
+            margin: 5px;
+        }
+        .typo3-editPanel { display:block; border: none; background-color: #eee;padding:10px;margin: 0;}
+        .typo3-editPanel>.toolbar { float:left;}
+        .typo3-editPanel TD.typo3-editPanel-controls { border: 1px solid #ccc; background-color: #fff;}
+    </style>
+	)
+}
+
+config.admPanel = {$plugin.tx_dnthemeexpotechnik.persistence.admPanel}
+
+### Einzufügen unter: TypoScript/ts.typoscript
+ADMIN < lib.admin
+admPanel = TEXT
+admPanel.value = {$plugin.tx_dnthemedanielnemanic.persistence.admPanel}

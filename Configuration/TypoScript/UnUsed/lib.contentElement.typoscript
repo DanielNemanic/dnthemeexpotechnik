@@ -1,0 +1,13 @@
+lib.contentElement {
+	templateRootPaths {
+		20 = EXT:dnthemeexpotechnik/Resources/Private/fluid/Templates/
+	}
+
+	partialRootPaths {
+		20 = EXT:dnthemeexpotechnik/Resources/Private/fluid/Partials/
+	}
+
+	layoutRootPaths {
+		20 = EXT:dnthemeexpotechnik/Resources/Private/fluid/Layouts/
+	}
+}

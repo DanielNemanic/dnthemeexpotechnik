@@ -1,0 +1,41 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+<f:layout name="General" />
+<!--
+	=====================
+		Templates/News/DateMenu.html
+-->
+<f:section name="content">
+    <ul class="uk-nav uk-nav-default uk-nav-parent-icon uk-margin" uk-nav="multiple:true">
+        <f:for each="{data.single}" key="year" as="months">
+            <f:if condition="{0:year} == {0:overwriteDemand.year}">
+                <f:then>
+                    <li class="uk-parent uk-active uk-open">
+                </f:then>
+                <f:else>
+                    <li class="uk-parent ">
+                </f:else>
+            </f:if>
+                <a href="#">{year}</a>
+                <ul class="uk-nav-sub">
+                    <f:for each="{months}" key="month" as="count">
+                        <f:if condition="{0:year, 1:month} == {0:overwriteDemand.year, 1:overwriteDemand.month}">
+                            <f:then>
+                                <li class="uk-active">
+                            </f:then>
+                            <f:else>
+                                <li>
+                            </f:else>
+                        </f:if>
+                            <f:link.action pageUid="{listPid}"
+                                           arguments="{overwriteDemand:{year: year, month: month}}">
+                                <f:translate key="month.{month}" />
+                                {year}
+                                ({count} <f:translate key="{f:if(condition: '{count} == 1', then: 'entry', else: 'entries')}" />)
+                            </f:link.action>
+                        </li>
+                    </f:for>
+                </ul>
+            </li>
+        </f:for>
+    </ul>
+</f:section>

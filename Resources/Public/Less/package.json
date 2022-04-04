@@ -1,0 +1,19 @@
+{
+  "name": "dnexpotechnik",
+  "version": "1.0.0",
+  "description": "Theme for Expotechnik",
+  "private": true,
+  "main": "less.js",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "normalize-css": "^2.3.1",
+    "sticky-table-headers": "^0.1.24",
+    "uikit": "^3.0.0-rc.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Nemanic",
+  "license": "ISC"
+}

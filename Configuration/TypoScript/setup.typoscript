@@ -1,0 +1,41 @@
+plugin.tx_dnthemeexpotechnik {
+	view {
+		templateRootPath = {$plugin.tx_dnthemeexpotechnik.view.templateRootPath}
+		partialRootPath = {$plugin.tx_dnthemeexpotechnik.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_dnthemeexpotechnik.view.layoutRootPath}
+	}
+
+	persistence {
+		storagePid = {$plugin.tx_dnthemeexpotechnik.persistence.storagePid}
+		noCache = {$plugin.tx_dnthemeexpotechnik.persistence.noCache}
+		admPanel = {$plugin.tx_dnthemeexpotechnik.persistence.admPanel}
+		legalInformation = {$plugin.tx_dnthemeexpotechnik.persistence.legalInformation}
+		disclaimer = {$plugin.tx_dnthemeexpotechnik.persistence.disclaimer}
+		dataProtection = {$plugin.tx_dnthemeexpotechnik.persistence.dataProtection}
+		imprint = {$plugin.tx_dnthemeexpotechnik.persistence.imprint}
+		login = {$plugin.tx_dnthemeexpotechnik.persistence.login}
+		register = {$plugin.tx_dnthemeexpotechnik.persistence.register}
+		showUserSettings = {$plugin.tx_dnthemeexpotechnik.persistence.showUserSettings}
+		showLanguageBar = {$plugin.tx_dnthemeexpotechnik.persistence.showLanguageBar}
+		showFooterInfos = {$plugin.tx_dnthemeexpotechnik.persistence.showFooterInfos}
+		userSettings = {$plugin.tx_dnthemeexpotechnik.persistence.userSettings}
+		logout = {$plugin.tx_dnthemeexpotechnik.persistence.logout}
+		rootPage = {$plugin.tx_dnthemeexpotechnik.persistence.rootPage}
+		help = {$plugin.tx_dnthemeexpotechnik.persistence.help}
+	}
+
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+lib.fluidContent.settings.media.popup {
+	directImageLink = 1
+	linkParams.ATagParams.dataWrap = data-uk-lightbox="group:'lightboxgroup'"
+	JSwindow = 0
+}
+
+@import 'EXT:dnthemeexpotechnik/Configuration/TypoScript/TypoScript/*.typoscript'
+#@import 'EXT:dnthemeexpotechnik/Configuration/TypoScript/News/setup.typoscript'
+@import 'EXT:dnthemeexpotechnik/Configuration/TypoScript/FELogin/setup.typoscript'

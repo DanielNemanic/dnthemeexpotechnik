@@ -1,0 +1,4 @@
+page.includeCSS {
+	normalize = EXT:dnthemeexpotechnik/Resources/Public/StyleSheet/normalize.css
+	dnthemeexpotechnik = EXT:dnthemeexpotechnik/Resources/Public/StyleSheet/dnexpotechnik.css
+}

@@ -1,0 +1,16 @@
+lib.noscript_message = TEXT
+lib.noscript_message.value (
+<h2>Hello,<br>
+this page requires JavaScript. <br>
+Please enable it in your settings, otherwise errors occur and the page will not run properly.
+</h2>
+)
+
+[siteLanguage("1") == "de_DE"]
+	lib.noscript_message.value (
+<h2> Hallo,<br>
+  	auf dieser Seite wird JavaScript benötigt.<br>
+  	Bitte aktivieren Sie dies in Ihren Einstellungen, da sonst Fehler entstehen und die Seite nicht richtig ausgeführt wird.
+</h2>
+	)
+[end]

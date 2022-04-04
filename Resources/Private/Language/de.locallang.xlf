@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target="de" datatype="plaintext" original="messages" date="2015-01-08T09:07:27Z" product-name="dnthemeexpotechnik">
+		<header/>
+		<body>
+			<trans-unit id="ScrollUp">
+				<source>Scroll up</source>
+				<target>Nach oben</target>
+			</trans-unit>
+			<trans-unit id="legalInformation">
+				<source>Rechtliche Hinweise</source>
+			</trans-unit>
+			<trans-unit id="disclaimer">
+				<source>Disclaimer</source>
+			</trans-unit>
+			<trans-unit id="imprint">
+				<source>Impressum</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,44 @@
+temp.langu = TEXT
+temp.langu.value = Language
+
+[siteLanguage("1") == "de_DE"]
+	temp.langu.value = Sprache
+[end]
+
+lib.language_bar = COA
+lib.language_bar {
+	10 = TEXT
+	10 {
+		value = English
+		typolink {
+			parameter.data = TSFE:id
+			additionalParams = &L=0
+			addQueryString = 1
+		}
+
+		wrap = <li>|</li>
+	}
+
+	20 = TEXT
+	20 {
+		value = Deutsch
+		typolink {
+			parameter.data = TSFE:id
+			additionalParams = &L=1
+			addQueryString = 1
+		}
+
+		wrap = <li>|</li>
+	}
+
+	30 = TEXT
+	30 {
+		value = <li class="uk-nav-divider"></li>
+	}
+}
+
+lib.language_bar_offcanvas = COA
+lib.language_bar_offcanvas {
+	20 < lib.language_bar
+	20.30 >
+}

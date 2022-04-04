@@ -1,0 +1,37 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="uk-section uk-section-small Footer uk-light uk-background-secondary">
+	<div class="uk-container uk-text-center ">
+		ET Global
+	</div>
+	<footer class="uk-container uk-text-center">
+		<a href="http://etglobal.com" target="_blank" title="ET Global">
+			<span uk-icon="" class="uk-icon-button uk-button-default uk-margin-small-right">E</span>
+		</a>
+		<a href="https://www.facebook.com/ETGlobalExhibitGroup" target="_blank"
+		   title="Follow ET Global via Facebook">
+			<span uk-icon="icon: facebook" class="uk-icon-button uk-button-default uk-margin-small-right"></span>
+		</a>
+		<a href="https://twitter.com/ETGlobal_DE" target="_blank" title="Follow ET Global Exhibig Group via Twitter">
+			<span uk-icon="icon: twitter" class="uk-icon-button uk-button-default uk-margin-small-right"></span>
+		</a>
+		<a href=".uk-navbar-container" class="uk-position-right" uk-scroll uk-totop></a>
+	</footer>
+	<f:if condition="{showFooterInfos}">
+		<footer class="uk-container uk-text-center FooterInfos">
+			
+			<a href="https://www.etglobal.com/#impressum" target="_blank">
+				<f:translate key="legalInformation" extensionName="dnthemeexpotechnik"/>
+			</a>
+			
+			<a href="https://www.etglobal.com/#impressum" target="_blank">
+				<f:translate key="disclaimer" extensionName="dnthemeexpotechnik"/>
+			</a>
+			
+			<a href="https://www.etglobal.com/#impressum" target="_blank">
+				<f:translate key="imprint" extensionName="dnthemeexpotechnik"/>
+			</a>
+		</footer>
+	</f:if>
+</div>
+</html>

@@ -1,0 +1,71 @@
+## Define custom categories
+# customsubcategory=news=News Settings
+# customsubcategory=feuser=FE User
+
+plugin.tx_dnthemeexpotechnik {
+	view {
+		# cat=plugin.tx_dnthemeexpotechnik/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:dnthemeexpotechnik/Resources/Private/Theme/Templates/
+		# cat=plugin.tx_dnthemeexpotechnik/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:dnthemeexpotechnik/Resources/Private/Theme/Partials/
+		# cat=plugin.tx_dnthemeexpotechnik/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:dnthemeexpotechnik/Resources/Private/Theme/Layouts/
+	}
+
+	persistence {
+		# cat=plugin.tx_dnthemeexpotechnik//a; type=string; label=Default storage PID
+		storagePid =
+
+		# cat=plugin.tx_dnthemeexpotechnik/enable/01; type=boolean; label=No Cache
+		noCache =
+		# cat=plugin.tx_dnthemeexpotechnik/enable/02; type=boolean; label=Admin Panel
+		admPanel =
+		# cat=plugin.tx_dnthemeexpotechnik/enable/03; type=boolean; label=Show User Settings Page
+		showUserSettings =
+		# cat=plugin.tx_dnthemeexpotechnik/enable/04; type=boolean; label=Show Language Bar
+		showLanguageBar =
+		# cat=plugin.tx_dnthemeexpotechnik/enable/04; type=boolean; label=Show Footer Infos
+		showFooterInfos =
+
+		# cat=plugin.tx_dnthemeexpotechnik/chtml/02; type=boolean; label= Compress CSS
+		compressCss =
+		# cat=plugin.tx_dnthemeexpotechnik/chtml/03; type=boolean; label= Compress JS
+		compressJs =
+
+		# cat=plugin.tx_dnthemeexpotechnik/links/01; type=int; label=Root Page
+		rootPage =
+		# cat=plugin.tx_dnthemeexpotechnik/links/06; type=int; label=Help Page
+		help =
+
+		# cat=plugin.tx_dnthemeexpotechnik/feuser/001; type=int; label=Login Page
+		login =
+		# cat=plugin.tx_dnthemeexpotechnik/feuser/002; type=int; label=Register Page
+		register =
+		# cat=plugin.tx_dnthemeexpotechnik/feuser/003; type=int; label=User Settings Page
+		userSettings =
+		# cat=plugin.tx_dnthemeexpotechnik/feuser/004; type=int; label=Logout Page
+		logout =
+
+		# cat=plugin.tx_dnthemeexpotechnik_news/news/001; type=int; label=News Detail PID
+		NewsDetailPid =
+		# cat=plugin.tx_dnthemeexpotechnik_news/news/001; type=int; label=News Startingpoint - Collection
+		NewsStartingpoint =
+		# cat=plugin.tx_dnthemeexpotechnik_news/news/001; type=text; label=News BaseURL
+		NewsBaseURL =
+		# cat=plugin.tx_dnthemeexpotechnik_news/news/001; type=int; label=News Image maxHeightCard
+		NewsImageMaxHeightCard = 400
+		# cat=plugin.tx_dnthemeexpotechnik_news/news/001; type=int; label=News Image maxWidthCard
+		NewsImageMaxWidthCard = 600
+		# cat=plugin.tx_dnthemeexpotechnik_news/news/001; type=int; label=News Video height
+		NewsVideoHeight =
+	}
+}
+
+styles.content.textmedia.maxW = 950
+styles.content.textmedia.maxWInText = 500
+styles.content.textmedia.linkWrap.width = 950
+styles.content.textmedia.linkWrap.lightboxEnabled = 1
+styles.content.textmedia.linkWrap.lightboxRelAttribute = lightbox{field:uid}
+
+#@import 'EXT:dnthemeexpotechnik/Configuration/TypoScript/News/constants.t3s'
+@import 'EXT:dnthemeexpotechnik/Configuration/TypoScript/SR_Freecap/constants.typoscript'

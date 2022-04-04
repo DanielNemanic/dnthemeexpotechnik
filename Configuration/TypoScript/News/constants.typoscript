@@ -1,0 +1,16 @@
+plugin.tx_news {
+	settings {
+		cssFile = EXT:dnthemeexpotechnik/Resources/Public/news/news-basic.css
+	}
+
+    _LOCAL_LANG.en {
+        share_text  = Share
+        receiver    = Share the News with ... by entering the E-Mail
+        share_send  = Share
+    }
+    _LOCAL_LANG.de {
+        share_text  = Teilen
+        receiver    = Teile diese News mit ... indem Sie die E-Mail eingeben
+        share_send  = Teilen
+    }
+}

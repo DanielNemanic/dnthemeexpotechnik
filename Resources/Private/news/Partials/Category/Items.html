@@ -1,0 +1,15 @@
+<!-- categories -->
+<ul >
+	<f:for each="{categories}" as="category">
+		<f:if condition="{category.shortcut}">
+			<f:then>
+				<f:link.page pageUid="{category.shortcut}">
+                    <li>{category.title}</li>
+				</f:link.page>
+			</f:then>
+			<f:else>
+                <li>{category.title}</li>
+			</f:else>
+		</f:if>
+	</f:for>
+</ul>

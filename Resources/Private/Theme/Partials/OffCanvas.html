@@ -1,0 +1,49 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div id="offcanvas" class="uk-offcanvas" uk-offcanvas="mode: slide">
+	<div class="uk-offcanvas-bar uk-light uk-background-secondary">
+		<button class="uk-offcanvas-close" type="button" uk-close></button>
+		<div class="uk-card uk-card-large uk-text-center">
+			<p>
+				<f:link.page pageUid="{rootPage}" class="uk-navbar-brand">
+					<f:format.raw>{logo}</f:format.raw>
+				</f:link.page>
+			</p>
+		</div>
+		<ul class="uk-nav uk-nav-default uk-nav-parent-icon" uk-nav="multiple:true;toggle:> a.SubLink">
+			<li>
+				<f:link.page pageUid="{rootPage}">
+					<pt:Pagetitle pageUid="{rootPage}"/>
+				</f:link.page>
+			</li>
+			<f:for each="{mainMenu}" as="mainItem">
+				<li {f:if(condition:
+				'{mainItem.active}', then: 'class="uk-active"', else: '' )} >
+				<a href="{mainItem.link}" target="{mainItem.data.target}" title="{mainItem.title}">{mainItem.title}</a>
+				<f:if condition="{mainItem.children}">
+					<ul class="uk-nav-sub">
+						<f:for each="{mainItem.children}" as="mainChildren">
+							<f:if condition="{mainChildren.spacer}">
+								<f:then>
+									<li class="uk-nav-divider"></li>
+								</f:then>
+								<f:else>
+									<li {f:if(condition:
+									'{mainItem.active}', then: 'class="uk-active"', else: '' )} >
+									<a href="{mainChildren.link}" target="{mainChildren.data.target}" title="{mainChildren.title}">{mainChildren.title}</a>
+									</li>
+								</f:else>
+							</f:if>
+						</f:for>
+					</ul>
+				</f:if>
+				</li>
+			</f:for>
+			
+			<li class="uk-nav-divider"></li>
+			
+			<f:render partial="UserMenu" arguments="{_all}"/>
+		</ul>
+	</div>
+</div>
+</html>

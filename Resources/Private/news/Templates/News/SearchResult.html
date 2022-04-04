@@ -1,0 +1,28 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+<f:layout name="General" />
+<!--
+	=====================
+		Templates/News/SearchResult.html
+-->
+
+<f:section name="content">
+    <f:if condition="{search}">
+        <f:if condition="{news}">
+            <f:then>
+                <div class="uk-alert-primary" uk-alert>
+                    <b><f:translate key="search-text" arguments="{0:'{f:count(subject:news)}',1:search.subject}" /></b>
+                </div>
+                <f:for each="{news}" as="newsItem">
+                    <article class="uk-article">
+                        <f:render partial="List/Item" arguments="{newsItem: newsItem, settings:settings, className:className, view:'list'}" />
+                    </article>
+                </f:for>
+            </f:then>
+            <f:else>
+                <div class="uk-alert-warning" uk-alert>
+                    <f:translate key="search-noresult" />
+                </div>
+            </f:else>
+        </f:if>
+    </f:if>
+</f:section>

@@ -1,0 +1,52 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{showLanguageBar}">
+	<f:format.raw>
+		{language_bar_offcanvas -> f:cObject(typoscriptObjectPath: 'lib.language_bar_offcanvas')}
+	</f:format.raw>
+	<li class="uk-nav-divider"></li>
+</f:if>
+
+<f:if condition="{help}">
+	<li>
+		<f:link.page pageUid="{help}">
+			<span uk-icon="icon: question"></span>
+			<pt:Pagetitle pageUid="{help}"/>
+		</f:link.page>
+	</li>
+	<li class="uk-nav-divider"></li>
+</f:if>
+
+<f:security.ifAuthenticated>
+	<f:then>
+		<f:if condition="{showUserSettings}">
+			<li>
+				<f:link.page pageUid="{user_settings}">
+					<span uk-icon="icon: user"></span>
+					<pt:Pagetitle pageUid="{user_settings}"/>
+				</f:link.page>
+			</li>
+		</f:if>
+		<li>
+			<f:link.page pageUid="{logout}">
+				<span uk-icon="icon: sign-out"></span>
+				<pt:Pagetitle pageUid="{logout}"/>
+			</f:link.page>
+		</li>
+	</f:then>
+	<f:else>
+		<li>
+			<f:link.page pageUid="{login}" additionalParams="{logintype:'login'}">
+				<span uk-icon="icon: sign-in"></span>
+				<pt:Pagetitle pageUid="{login}"/>
+			</f:link.page>
+		</li>
+		<li>
+			<f:link.page pageUid="{register}">
+				<span uk-icon="icon: users"></span>
+				<pt:Pagetitle pageUid="{register}"/>
+			</f:link.page>
+		</li>
+	</f:else>
+</f:security.ifAuthenticated>
+</html>

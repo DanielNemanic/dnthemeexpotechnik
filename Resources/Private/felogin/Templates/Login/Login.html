@@ -1,0 +1,93 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:flashMessages/>
+<f:if condition="{cookieWarning}">
+   <f:render partial="CookieWarning"/>
+</f:if>
+
+<f:if condition="{messageKey}">
+   <div class="uk-section uk-section-small uk-section-muted">
+      <div class="uk-container">
+         <h3>
+            <f:render partial="RenderLabelOrMessage" arguments="{key: '{messageKey}_header'}"/>
+         </h3>
+         <p>
+            <f:render partial="RenderLabelOrMessage" arguments="{key: '{messageKey}_message'}"/>
+         </p>
+      </div>
+   </div>
+</f:if>
+
+<f:if condition="{onSubmit}">
+   <f:then>
+      <f:form target="_top" fieldNamePrefix="" action="login" onsubmit="{onSubmit}" class="uk-form-stacked">
+         <f:render section="content" arguments="{_all}"/>
+      </f:form>
+   </f:then>
+   <f:else>
+      <f:form target="_top" fieldNamePrefix="" action="login" class="uk-form-stacked">
+         <f:render section="content" arguments="{_all}"/>
+      </f:form>
+   </f:else>
+</f:if>
+
+<f:if condition="{settings.showForgotPassword}">
+   <f:link.action action="recovery" controller="PasswordRecovery">
+      <f:render partial="RenderLabelOrMessage" arguments="{key: 'forgot_header'}"/>
+   </f:link.action>
+</f:if>
+
+<f:section name="content">
+   <div class="uk-margin">
+      <label class="uk-form-label"><f:translate key="username"/></label>
+      <div class="uk-form-controls">
+         <f:form.textfield name="user" class="uk-input"/>
+      </div>
+   </div>
+   <div class="uk-margin">
+      <label class="uk-form-label"><f:translate key="password"/></label>
+      <div class="uk-form-controls">
+         <f:form.password name="pass" data="{rsa-encryption: ''}" class="uk-input"/>
+      </div>
+   </div>
+   <f:if condition="{permaloginStatus} > -1">
+      <div class="uk-margin">
+         <label>
+            <f:if condition="{permaloginStatus} == 1">
+               <f:then>
+                  <f:form.hidden name="permalogin" value="0" additionalAttributes="{disabled: 'disabled'}"/>
+                  <f:form.checkbox name="permalogin" id="permalogin" value="1" checked="checked" class="uk-checkbox"/>
+               </f:then>
+               <f:else>
+                  <f:form.hidden name="permalogin" value="0"/>
+                  <f:form.checkbox name="permalogin" id="permalogin" value="1" class="uk-checkbox"/>
+               </f:else>
+            </f:if>
+            <f:translate id="permalogin"/>
+         </label>
+      </div>
+   </f:if>
+   <div class="uk-margin">
+      <f:form.submit value="{f:translate(key: 'login')}" name="submit"
+                     class="uk-width-1-1 uk-width-1-2@s uk-button uk-button-primary"/>
+   </div>
+   <div class="felogin-hidden">
+      <f:form.hidden name="logintype" value="login"/>
+      <f:form.hidden name="pid" value="{storagePid}"/>
+      <f:if condition="{redirectURL}!=''">
+         <f:form.hidden name="redirect_url" value="{redirectURL}"/>
+      </f:if>
+      <f:if condition="{referer}!=''">
+         <f:form.hidden name="referer" value="{referer}"/>
+      </f:if>
+      <f:if condition="{redirectReferrer}!=''">
+         <f:form.hidden name="redirectReferrer" value="off"/>
+      </f:if>
+      <f:if condition="{noRedirect}!=''">
+         <f:form.hidden name="noredirect" value="1"/>
+      </f:if>
+      
+      {extraHidden}
+   </div>
+</f:section>
+</html>

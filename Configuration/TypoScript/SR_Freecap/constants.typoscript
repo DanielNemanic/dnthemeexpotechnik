@@ -1,0 +1,4 @@
+plugin.tx_srfreecap {
+	generateNumbers = 1
+	backgroundMorph = 1
+}

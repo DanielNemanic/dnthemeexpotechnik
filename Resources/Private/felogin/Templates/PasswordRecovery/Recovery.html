@@ -1,0 +1,37 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="uk-section uk-section-small uk-section-muted">
+	<div class="uk-container">
+		<h3>
+			<f:translate key="forgot_header"/>
+		</h3>
+		<p>
+			<f:translate key="forgot_reset_message"/>
+		</p>
+		<div class="uk-margin">
+			<f:render partial="RenderLabelOrMessage" arguments="{key: 'reset_password'}"/>
+		</div>
+	</div>
+</div>
+<f:render partial="ValidationErrors"/>
+
+<f:form action="recovery" method="post" class="uk-form-stacked">
+	<div class="uk-margin">
+		<label class="uk-form-label">
+			<f:translate key="enter_your_data"/>
+		</label>
+		<div class="uk-form-controls">
+			<f:form.textfield name="userIdentifier" class="uk-input"/>
+		</div>
+	</div>
+	<div class="uk-margin">
+		<f:form.submit value="{f:translate(key: 'reset_password')}"
+		               class="uk-width-1-1 uk-width-1-2@s uk-button uk-button-primary"/>
+	</div>
+</f:form>
+<p>
+	<f:link.action action="login" controller="Login">
+		<f:translate key="forgot_header_backToLogin"/>
+	</f:link.action>
+</p>
+</html>

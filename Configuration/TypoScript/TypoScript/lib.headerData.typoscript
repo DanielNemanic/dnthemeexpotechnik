@@ -1,0 +1,19 @@
+lib.headerData = COA
+lib.headerData {
+	5 = TEXT
+	5 {
+		field = title
+		noTrimWrap = |<title>| - ET Global</title>|
+	}
+
+	10 = TEXT
+	10.value (
+        <link rel="apple-touch-icon" sizes="180x180" href="/typo3conf/ext/dnthemeexpotechnik/Resources/Public/Icons/E3/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="/typo3conf/ext/dnthemeexpotechnik/Resources/Public/Icons/E3/favicon/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/typo3conf/ext/dnthemeexpotechnik/Resources/Public/Icons/E3/favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="mask-icon" href="/typo3conf/ext/dnthemeexpotechnik/Resources/Public/Icons/E3/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="theme-color" content="#000000">
+	)
+
+	9586 < page.headerData.9586
+}

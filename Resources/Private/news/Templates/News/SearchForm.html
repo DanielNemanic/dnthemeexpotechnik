@@ -1,0 +1,29 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+<f:layout name="General" />
+<!--
+	=====================
+		Templates/News/SearchForm.html
+-->
+
+<f:section name="content">
+    <f:form object="{search}" name="search" pageUid="{settings.listPid}" class="uk-form-stacked uk-grid-small" additionalAttributes="{uk-grid:''}">
+        <div class="uk-width-1-1">
+            <label for="news-subject" class="uk-form-label"><f:translate key="search-subject" /></label>
+            <f:form.textfield id="news-subject" property="subject" class="uk-input uk-form-small" />
+        </div>
+
+        <div class="uk-width-1-1">
+            <label for="news-minimumDate" class="uk-form-label"><f:translate key="search-minimumDate" /></label>
+            <f:form.textfield id="news-minimumDate" property="minimumDate" type="date" class="uk-input uk-form-small"  />
+        </div>
+
+        <div class="uk-width-1-1">
+            <label for="news-maximumDate" class="uk-form-label"><f:translate key="search-maximumDate" /></label>
+            <f:form.textfield id="news-maximumDate" property="maximumDate" type="date" class="uk-input uk-form-small"  />
+        </div>
+
+        <div class="uk-width-1-1">
+            <f:form.submit value="{f:translate(key:'search-start')}" class="uk-button uk-button-primary uk-width-1-1" />
+        </div>
+    </f:form>
+</f:section>

@@ -1,0 +1,21 @@
+{
+  "name": "dn/themeexpotechnik",
+  "description": "DN Theme Expotechnik",
+  "type": "typo3-cms-extension",
+  "keywords": ["TYPO3 CMS", "DN Theme Expotechnik", "DN Theme Expotechnik"],
+  "homepage": "",
+  "license": "GPL-2.0+",
+  "version": "3.0.0 rc20",
+  "support": {
+    "issues": "https://forge.typo3.org/"
+  },
+  "require": {
+    "typo3/cms-core": ">=9",
+    "dn/dnuikit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "DN\\ThemeExpotechnik\\": "Classes/"
+    }
+  }
+}

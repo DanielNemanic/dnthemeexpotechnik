@@ -1,0 +1,44 @@
+########### PAGE ############
+page = PAGE
+page {
+	headerData < lib.headerData
+	footerData < lib.footerData
+	meta < lib.meta
+
+	shortcutIcon = EXT:dnthemeexpotechnik/Resources/Public/Icons/E3/favicon/favicon.ico
+	icon = EXT:dnthemeexpotechnik/Resources/Public/Icons/E3/favicon/favicon.ico
+
+	10 < lib.fluidTemplate
+	10 {
+		variables {
+			showLanguageBar = TEXT
+			showLanguageBar.value = {$plugin.tx_dnthemeexpotechnik.persistence.showLanguageBar}
+			showUserSettings = TEXT
+			showUserSettings.value = {$plugin.tx_dnthemeexpotechnik.persistence.showUserSettings}
+			showFooterInfos = TEXT
+			showFooterInfos.value = {$plugin.tx_dnthemeexpotechnik.persistence.showFooterInfos}
+
+			rootPage = TEXT
+			rootPage.value = {$plugin.tx_dnthemeexpotechnik.persistence.rootPage}
+
+			help = TEXT
+			help.value = {$plugin.tx_dnthemeexpotechnik.persistence.help}
+
+			user_settings = TEXT
+			user_settings.value = {$plugin.tx_dnthemeexpotechnik.persistence.userSettings}
+
+			register = TEXT
+			register.value = {$plugin.tx_dnthemeexpotechnik.persistence.register}
+
+			login = TEXT
+			login.value = {$plugin.tx_dnthemeexpotechnik.persistence.login}
+
+			logout = TEXT
+			logout.value = {$plugin.tx_dnthemeexpotechnik.persistence.logout}
+
+			noscript_message < lib.noscript_message
+
+			content_0 < styles.content.get
+		}
+	}
+}

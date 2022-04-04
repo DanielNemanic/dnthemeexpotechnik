@@ -1,0 +1,40 @@
+plugin.tx_news {
+	settings {
+		detail.media.image.maxHeight = 180
+		detail.media.image.maxWidth = 180
+		detail.media.video.height = 180
+		detail.media.image.maxHeightCard = {$plugin.tx_dnthemeexpotechnik.persistence.NewsImageMaxHeightCard}
+		detail.media.image.maxWidthCard = {$plugin.tx_dnthemeexpotechnik.persistence.NewsImageMaxWidthCard}
+		list.media.image.maxWidth < .detail.media.image.maxWidth
+		list.media.image.maxHeight < .detail.media.image.maxHeight
+
+		displayDummyIfNoMedia = 1
+
+		baseUrl = {$plugin.tx_dnthemeexpotechnik.persistence.NewsBaseURL}
+		detailPid = {$plugin.tx_dnthemeexpotechnik.persistence.NewsDetailPid}
+		startingpoint = {$plugin.tx_dnthemeexpotechnik.persistence.NewsStartingpoint}
+	}
+
+	view {
+		templateRootPaths >
+		templateRootPaths {
+			0 = EXT:news/Resources/Private/Templates/
+			10 = EXT:dnthemeexpotechnik/Resources/Private/news/Templates
+		}
+
+		partialRootPaths >
+		partialRootPaths {
+			0 = EXT:news/Resources/Private/Partials/
+			10 = EXT:dnthemeexpotechnik/Resources/Private/news/Partials
+		}
+
+		layoutRootPaths >
+		layoutRootPaths {
+			0 = EXT:news/Resources/Private/Layouts/
+			10 = EXT:dnthemeexpotechnik/Resources/Private/news/Layouts
+		}
+
+		widget.GeorgRinger\News\ViewHelpers\Widget\PaginateViewHelper.templateRootPath = EXT:dnthemeexpotechnik/Resources/Private/news/Templates/
+		widget.Tx_News_ViewHelpers_Widget_PaginateViewHelper.templateRootPath = EXT:dnthemeexpotechnik/Resources/Private/news/Templates/
+	}
+}

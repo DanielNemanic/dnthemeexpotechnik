@@ -1,0 +1,124 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<n:excludeDisplayedNews newsItem="{newsItem}" />
+
+<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+    <div class="uk-card-media-left uk-cover-container">
+        <f:if condition="{newsItem.falMedia}">
+            <!-- fal media preview element -->
+            <f:then>
+                <f:if condition="{newsItem.falMediaPreviews}">
+                    <f:then>
+                        <f:alias map="{mediaElement: newsItem.falMediaPreviews.0}">
+                            <f:if condition="{mediaElement.originalResource.type} == 2">
+                                <f:image src="{mediaElement.uid}" treatIdAsReference="1" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="{settings.list.media.image.maxWidthCard}" maxHeight="{settings.list.media.image.maxHeightCard}" additionalAttributes="{uk-cover:''}"  />
+                            </f:if>
+                            <f:if condition="{mediaElement.originalResource.type} == 4">
+                                <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}" />
+                            </f:if>
+                        </f:alias>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{settings.displayDummyIfNoMedia}">
+                            <f:image src="{settings.list.media.dummyImage}" title="" alt="" maxWidth="{settings.list.media.image.maxWidthCard}" maxHeight="{settings.list.media.image.maxHeightCard}" additionalAttributes="{uk-cover:''}" />
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+                <f:if condition="{newsItem.media}">
+                    <!-- media preview element -->
+                    <f:then>
+                        <f:if condition="{newsItem.mediaPreviews}">
+                            <f:then>
+                                <n:link newsItem="{newsItem}" settings="{settings}">
+                                    <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+                                        <f:if condition="{mediaElement.type} == 0">
+                                            <f:image src="uploads/tx_news/{mediaElement.image}" title="{mediaElement.title}" alt="{mediaElement.alt}" maxWidth="{settings.list.media.image.maxWidthCard}" maxHeight="{settings.list.media.image.maxHeightCard}" additionalAttributes="{uk-cover:''}" />
+                                        </f:if>
+                                        <f:if condition="{mediaElement.type} == 1">
+                                            <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}" />
+                                        </f:if>
+                                        <f:if condition="{mediaElement.type} == 2">
+                                            <f:render partial="Detail/MediaHtml" arguments="{mediaElement: mediaElement}" />
+                                        </f:if>
+                                    </f:alias>
+                                </n:link>
+                            </f:then>
+                            <f:else>
+                                <f:if condition="{settings.displayDummyIfNoMedia}">
+                                    <f:image src="{settings.list.media.dummyImage}" title="" alt="" maxWidth="{settings.list.media.image.maxWidthCard}" maxHeight="{settings.list.media.image.maxHeightCard}" additionalAttributes="{uk-cover:''}"/>
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{settings.displayDummyIfNoMedia}">
+                            <f:then>
+                                <f:image src="{settings.list.media.dummyImage}" title="" alt="" maxWidth="{settings.list.media.image.maxWidthCard}" maxHeight="{settings.list.media.image.maxHeightCard}" additionalAttributes="{uk-cover:''}" />
+                            </f:then>
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </f:else>
+        </f:if>
+        <canvas width="600" height="400"></canvas>
+    </div>
+    <div>
+        <div class="uk-card-body">
+            <!-- header -->
+            <h3 class="uk-card-title">{newsItem.title}</h3>
+
+            <!-- META information -->
+            <div class="uk-text-meta uk-position-right uk-margin-right uk-margin-top">
+                <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+
+                <f:comment>
+                <f:if condition="{newsItem.firstCategory}">
+                    <!-- first category -->
+                    {newsItem.firstCategory.title}
+                </f:if>
+                <f:if condition="{newsItem.tags}">
+                    <!-- Tags -->
+                    <f:for each="{newsItem.tags}" as="tag">
+                        {tag.title}
+                    </f:for>
+                </f:if>
+                </f:comment>
+                <!-- Share -->
+                <a href="#Share{newsItem.uid}" title="Share" uk-toggle="#Share{newsItem.uid}" uk-tooltip uk-icon="icon: social"></a>
+            </div>
+            <f:render partial="DN/Share" arguments="{_all}" />
+
+            <!-- teas=ser text -->
+            <f:if condition="{newsItem.teaser}">
+                <f:then>
+                    <f:format.html><f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="1">{newsItem.teaser}</f:format.crop></f:format.html>
+                </f:then>
+                <f:else>
+                    <f:format.html><f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="1">{newsItem.bodytext}</f:format.crop></f:format.html>
+                </f:else>
+            </f:if>
+
+            <n:link newsItem="{newsItem}" settings="{settings}" class="uk-button uk-button-text">
+                <f:translate key="more-link" />
+            </n:link>
+
+            <div class="uk-text-meta uk-position-bottom uk-text-right uk-margin-right uk-margin-top">
+                <!-- author -->
+                <f:if condition="{newsItem.author}">
+                    <f:if condition="{newsItem.authorEmail}">
+                        <f:then>
+                            <f:link.email email="{newsItem.authorEmail}"><f:translate key="author" arguments="{0:newsItem.author}" /></f:link.email>
+                        </f:then>
+                        <f:else>
+                            <f:translate key="author" arguments="{0:newsItem.author}" />
+                        </f:else>
+                    </f:if>
+                </f:if>
+            </div>
+        </div>
+    </div>
+</div>

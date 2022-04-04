@@ -1,0 +1,9 @@
+page.includeJSFooterlibs {
+	01 = EXT:dnthemeexpotechnik/Resources/Public/JavaScript/jquery.js
+	01.forceOnTop = 1
+
+	02 = EXT:dnthemeexpotechnik/Resources/Public/JavaScript/uikit.js
+	03 = EXT:dnthemeexpotechnik/Resources/Public/JavaScript/uikit-icons.js
+	04 = EXT:dnthemeexpotechnik/Resources/Public/JavaScript/js.js
+	04.async = 1
+}

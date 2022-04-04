@@ -1,0 +1,12 @@
+<f:layout name="Mail" />
+
+<f:section name="main">
+
+    <h3>Hallo {empfaengerName}</h3>
+    <f:for each="{content}" as="c">
+        <p><f:format.html>{c}</f:format.html></p>
+    </f:for>
+    <f:link.external uri="{url}" target="_blank">
+        {url}
+    </f:link.external>
+</f:section>

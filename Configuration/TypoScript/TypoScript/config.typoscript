@@ -1,0 +1,26 @@
+config {
+	no_cache = {$plugin.tx_dnthemeexpotechnik.persistence.noCache}
+	disablePrefixComment = 1
+	linkVars = L(1-5), print
+
+	sys_language_mode = ignore
+	sys_language_overlay = 1
+
+	tx_realurl_enable = 1
+	absRefPrefix = /
+	baseUrl = /
+	prefixLocalAnchors = all
+
+	noPageTitle = 2
+
+	typolinkEnableLinksAcrossDomains = 1
+	compressCss = {$plugin.tx_dnthemeexpotechnik.persistence.compressCss}
+	concatenateCss = {$plugin.tx_dnthemeexpotechnik.persistence.compressCss}
+
+	compressJs = {$plugin.tx_dnthemeexpotechnik.persistence.compressJs}
+	concatenateJs = {$plugin.tx_dnthemeexpotechnik.persistence.compressJs}
+
+	moveJsFromHeaderToFooter = 1
+}
+
+config.contentObjectExceptionHandler = 0

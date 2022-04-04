@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<div id="Share{newsItem.uid}" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <a class="uk-modal-close-default" uk-close></a>
+        <form method="post" role="form" id="ShareForm" class="uk-form-stacked">
+            <div class="uk-margin">
+                <label for="tx_comments_pi1_content"><f:translate key="receiver" /></label>
+                <input class="uk-input uk-width-1-1" type="text" name="ShareEmpfaenger" id="ShareEmpfaenger" value="" placeholder="E-Mail" />
+                <input type="hidden" name="ShareTitle" id="ShareTitle" value="{newsItem.title}" />
+                <f:if condition="{newsItem.teaser}">
+                    <f:then>
+                        <input type="hidden" name="ShareTeaser" id="ShareTeaser" value="{newsItem.teaser}" >
+                    </f:then>
+                    <f:else>
+                        <f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="1"><input type="hidden" name="ShareTeaser" id="ShareTeaser" value="{newsItem.bodytext}" ></f:format.crop>
+                    </f:else>
+                </f:if>
+
+                <f:if condition="{newsItem.falMediaPreviews.0.originalResource.publicUrl}">
+                    <f:then>
+                        <input type="hidden" name="SharePicture" id="SharePicture" value="{newsItem.falMediaPreviews.0.originalResource.publicUrl}" />
+                    </f:then>
+                    <f:else>
+                        <input type="hidden" name="SharePicture" id="SharePicture" value="{settings.baseUrl}/{settings.list.media.dummyImage}" />
+                    </f:else>
+                </f:if>
+                <input type="hidden" name="BaseUrl" id="BaseUrl" value="{settings.baseUrl}" />
+                <span style="display:none;"><n:link newsItem="{newsItem}" settings="{settings}" class="ShareLink">&bnsp;</n:link></span>
+            </div>
+            <div class="uk-margin">
+                <input class="uk-button uk-button-primary uk-width-1-1" type="submit" name="Submit" id="Submit" value="Share" />
+            </div>
+            <div id="ShareMessage"></div>
+        </form>
+    </div>
+</div>
+</html>

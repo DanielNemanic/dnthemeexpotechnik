@@ -1,0 +1,20 @@
+plugin.tx_felogin_pi1._LOCAL_LANG {
+    en {
+        username = Email Address
+        password = Login Password
+    }
+    de {
+        username = E-Mail-Adresse
+        password = Login Passwort
+    }
+}
+plugin.tx_felogin_pi1 {
+    templateFile = EXT:dnthemeexpotechnik/Resources/Private/felogin/FrontendLogin.html
+    showPermaLogin = 1
+}
+plugin.tx_felogin_login {
+    view {
+        templateRootPaths.10 = EXT:dnthemeexpotechnik/Resources/Private/felogin/Templates
+        partialRootPaths.10 = EXT:dnthemeexpotechnik/Resources/Private/felogin/Partials
+    }
+}
